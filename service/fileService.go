@@ -13,15 +13,17 @@ import (
 // Working directory
 var mydir = rootDir()
 
+// FileService interface defiing the list of functions needed
 type FileService interface {
 	Save(file entity.UploadFiles, ctx *gin.Context) entity.UploadFiles
 	FindAll() []string
 }
 
+// fileService struct
 type fileService struct {
 	files []entity.UploadFiles
 }
-
+// New initiliazer 
 func New() FileService {
 	return &fileService{}
 }
